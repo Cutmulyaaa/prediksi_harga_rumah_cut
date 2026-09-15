@@ -1,3 +1,4 @@
+%%writefile main.py
 import streamlit as st
 import pandas as pd
 import pickle
@@ -5,7 +6,7 @@ import numpy as np
 
 # Load the necessary artifacts
 try:
-    with open('gb_model.pkl', 'rb') as file:
+    with open('huber_model.pkl', 'rb') as file:
         model = pickle.load(file)
     with open('rentang_fitur.pkl', 'rb') as file:
         rentang_fitur = pickle.load(file)
@@ -16,7 +17,7 @@ try:
     with open('target_scaler.pkl', 'rb') as file:
         target_scaler = pickle.load(file)
 except FileNotFoundError:
-    st.error("Model or scaler files not found. Please ensure 'rf_model.pkl', 'rentang_fitur.pkl', 'label_encoder.pkl', 'scaler_fitur.pkl', and 'target_scaler.pkl' are in the same directory.")
+    st.error("Model or scaler files not found. Please ensure 'huber_model.pkl', 'rentang_fitur.pkl', 'label_encoder.pkl', 'scaler_fitur.pkl', and 'target_scaler.pkl' are in the same directory.")
     st.stop()
 
 def main():
